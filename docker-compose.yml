@@ -1,0 +1,40 @@
+services:
+  app:
+    image: trinity505/hotel-backend:1.0.2
+    restart: always
+    ports:
+      - "4040:4040"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/hotelMGT
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_MAIL_USERNAME: rtrt@gmail.com
+      SPRING_MAIL_PASSWORD: rtr trt rtrt rtrt
+      AWS_ACCESS_KEY: rtrtrt
+      AWS_SECRET_KEY: rtrtrt+trtrt
+      FRONTEND_HOSTNAME: ec2-13-60-205-57.eu-north-1.compute.amazonaws.com/
+    depends_on:
+      - db
+    networks:
+      - 'htnet'
+
+  db:
+    image: mysql:8.0.33
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hotelMGT
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "33061:3306"
+    networks:
+      - 'htnet'
+
+volumes:
+  db_data:
+
+networks:
+  htnet:
+    external: true
