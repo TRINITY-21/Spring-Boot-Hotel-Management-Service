@@ -6,4 +6,4 @@
 
 
 # This is the Link to the Microservice of the app
-https://github.com/TRINITY-21/Frontend-spring-boot-hotel-Management-application
+https://github.com/TRINITY-21/Backend-spring-Boot-Hotel-Management-Microservice/tree/master
